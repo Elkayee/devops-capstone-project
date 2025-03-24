@@ -1,3 +1,4 @@
+
 """
 Package: service
 Package for the application models and service routes
@@ -6,6 +7,7 @@ and SQL database
 """
 import sys
 from flask import Flask
+from flask_talisman import Talisman
 from service import config
 from service.common import log_handlers
 
@@ -35,3 +37,5 @@ except Exception as error:  # pylint: disable=broad-except
     sys.exit(4)
 
 app.logger.info("Service initialized!")
+
+talisman = Talisman(app)  
